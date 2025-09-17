@@ -1,3 +1,4 @@
+# 导入必要的库
 from flask import Flask, jsonify
 
 # 初始化 Flask 应用
@@ -12,6 +13,22 @@ def hello_world():
 @app.route('/user/<name>')
 def get_user(name):
     return f"你好，{name}！"
+
+# 定义带多个参数的路程：例如访问 /product/手机/1000，会返回对应内容
+# Flask 支持在路由中传递多个参数，只需在URL规则中按顺序添加多个参数占位符
+@app.route('/product/<category>/<int:price>')
+def get_product_info(category, price):
+    """
+    获取产品信息的视图函数
+    
+    参数:
+        category: 产品类别（字符串类型）
+        price: 产品价格（整数类型，通过int:指定类型转换器）
+    
+    返回:
+        包含产品信息的字符串
+    """
+    return f"产品类别：{category}，价格：{price}元"
 
 # 定义一个返回 JSON 数据的接口（实际开发中常用）
 @app.route('/api/data')
