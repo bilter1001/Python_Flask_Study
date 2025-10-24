@@ -1,9 +1,10 @@
 [project]
 name = "python-flask-study"
 version = "0.1.0"
-description = "Add your description here"
+description = "学习Python后端开发的Flask项目，包含RESTful API示例和视频内容分析工具"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "flask>=3.1.2",
+    "openai>=1.0.0",
 ]
